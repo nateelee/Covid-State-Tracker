@@ -8,7 +8,7 @@ const Cards = (props) => {
    if (!props.data.confirmed) {
         return 'Loading...';
    }
-   
+   console.log(new Date(props.data.lastUpdate).toDateString())
     return (
         <div class = {styles.container}>
             <Grid container spacing = {3} justify = "center">
