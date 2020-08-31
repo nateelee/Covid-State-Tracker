@@ -27,24 +27,23 @@ export const fetchData = async(state) => {
     if (state) {
         state = state.toLowerCase()
         
-        changeableUrl2 = `${url3}/${state}/current.json`
+        changeableUrl2 = `${url3}/${state}/daily.json`
         try {
        
             const data2 = await axios.get(changeableUrl2);
-            let date = parse(data2.data.date.toString()) + 'T17:28:22.000Z';
-            
-            console.log(date)
-            
-            const modifiedData2 = {
-                confirmed: data2.data.positive,
-                hospitalized: data2.data.positiveIncrease,
-                deaths: data2.data.death,
-                lastUpdate: date,
-            }
-            
+          
+            const modifiedData2 = data2.data.map((dailyData) => ({
+                confirmed: dailyData.positive,
+                hospitalized: dailyData.positiveIncrease,
+                deaths: dailyData.death,
+                lastUpdate: parse2(dailyData.date.toString())
+
+            }))
+           
             return modifiedData2;
     
         } catch (error) { 
+
 
         }
     }
