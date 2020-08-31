@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Card, CardContent, Typography, Grid} from '@material-ui/core';
 import styles from './cards.module.css'
 import CountUp from 'react-countup';
 import cx from 'classnames';
 const Cards = (props) => {
-   
+   const [state, setState ] = useState('')
    if (!props.data.confirmed) {
         return 'Loading...';
    }
@@ -14,7 +14,7 @@ const Cards = (props) => {
             <Grid container spacing = {3} justify = "center">
                 <Grid item component = {Card} xs = {12} md = {3} className = {cx(styles.card,styles.infected)}>
                     <CardContent>
-                        <Typography color="textSecondary" gutterBottom>Infected</Typography>
+                        <Typography color="textSecondary" gutterBottom>Total Infected</Typography>
                         <Typography variant = "h5">
                             <CountUp
                                 start = {0}
@@ -29,7 +29,7 @@ const Cards = (props) => {
                 </Grid>
                 <Grid item component = {Card} xs = {12} md = {3} className = {cx(styles.card,styles.recovered)}>
                     <CardContent>
-                        <Typography color="textSecondary" gutterBottom>Hospitalized</Typography>
+                        <Typography color="textSecondary" gutterBottom>Newly Infected</Typography>
                         <Typography variant = "h5">
                             <CountUp
                                 start = {0}
@@ -39,7 +39,7 @@ const Cards = (props) => {
                             />
                         </Typography>
                         <Typography color = "textSecondary">{new Date(props.data.lastUpdate).toDateString()}</Typography>
-                        <Typography variant = "body2">Number of current hospital patients from Covid-19</Typography>
+                        <Typography variant = "body2">Number of new positive confirmed cases of Covid-19</Typography>
                     </CardContent>
                 </Grid>
                 <Grid item component = {Card} xs = {12} md = {3} className = {cx(styles.card,styles.deaths)}>
