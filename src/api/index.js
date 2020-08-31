@@ -34,7 +34,7 @@ export const fetchData = async(state) => {
           
             const modifiedData2 = data2.data.map((dailyData) => ({
                 confirmed: dailyData.positive,
-                hospitalized: dailyData.positiveIncrease,
+                hospitalized: dailyData.positiveIncrease>0?dailyData.positiveIncrease:0,
                 deaths: dailyData.death,
                 lastUpdate: parse2(dailyData.date.toString())
 
