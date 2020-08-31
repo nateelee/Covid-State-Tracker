@@ -9,7 +9,6 @@ class App extends Component {
     state = {
         data: [],
         state: '',
-
     }
     async componentDidMount () {
         const fetchedData = await fetchData();
@@ -30,7 +29,6 @@ class App extends Component {
                 <Cards data = {this.state.data}/>
                 <StatePicker handleCountryChange = {this.handleCountryChange}/>
                 <Chart data = {this.state.data} state = {this.state.state}/>
-
             </div>
         );
     }
