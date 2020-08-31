@@ -54,7 +54,7 @@ export const fetchData = async(state) => {
             let date = parse(data9.data[0].date.toString()) + 'T17:28:22.000Z';
             const modifiedData2 = {
                 confirmed: data9.data[0].positive,
-                hospitalized: data9.data[0].positiveIncrease,
+                hospitalized: data9.data[0].positiveIncrease>0?data9.data[0].positiveIncrease:0,
                 deaths: data9.data[0].death,
                 lastUpdate: date,
             }
