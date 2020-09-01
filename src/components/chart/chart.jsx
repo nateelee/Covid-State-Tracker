@@ -41,7 +41,7 @@ const Chart = (props) => {
                     fill: true 
                 }],
             }}
-            height = {w<=375?500:150}
+            height = {w<=414?500:150}
         />) 
         : null
         
@@ -65,7 +65,7 @@ const Chart = (props) => {
                     fill: true 
                 }],
             }}
-            height = {w<=375?500:150}
+            height = {w<=414?500:150}
         />) 
         : null
         

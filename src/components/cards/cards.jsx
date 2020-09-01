@@ -4,6 +4,18 @@ import styles from './cards.module.css'
 import CountUp from 'react-countup';
 import cx from 'classnames';
 const Cards = (props) => {
+    function getCurrentDate (separator='') {
+
+        let newDate = new Date()
+        let date = newDate.getDate();
+        let month = newDate.getMonth() + 1;
+        let year = newDate.getFullYear();
+       
+        if (month < 10) month = '0' + month;
+        if (date < 10) date = '0' + date;
+       
+        return `${year}${separator}${month}${separator}${date}`
+      }
    if (!props.data.confirmed && !props.data.length) {
     return 'Loading...';
    }
@@ -22,7 +34,7 @@ const Cards = (props) => {
                                 seperator = ","
                             />
                         </Typography>
-                        <Typography color = "textSecondary">{new Date(props.data[0].lastUpdate).toDateString()}</Typography>
+                        <Typography color = "textSecondary">{new Date(getCurrentDate('/')).toDateString()}</Typography>
                         <Typography variant = "body2">Number of total confirmed positive cases from Covid-19</Typography>
                     </CardContent>
                 </Grid>
@@ -37,7 +49,7 @@ const Cards = (props) => {
                                 seperator = ","
                             />
                         </Typography>
-                        <Typography color = "textSecondary">{new Date(props.data[0].lastUpdate).toDateString()}</Typography>
+                        <Typography color = "textSecondary">{new Date(getCurrentDate('/')).toDateString()}</Typography>
                         <Typography variant = "body2">Number of new confirmed positive cases from Covid-19</Typography>
                     </CardContent>
                 </Grid>
@@ -52,7 +64,7 @@ const Cards = (props) => {
                                 seperator = ","
                             />
                         </Typography>
-                        <Typography color = "textSecondary">{new Date(props.data[0].lastUpdate).toDateString()}</Typography>
+                        <Typography color = "textSecondary">{new Date(getCurrentDate('/')).toDateString()}</Typography>
                         <Typography variant = "body2">Number of total deaths from Covid-19</Typography>
                     </CardContent>
                 </Grid>
@@ -74,7 +86,7 @@ const Cards = (props) => {
                                 seperator = ","
                             />
                         </Typography>
-                        <Typography color = "textSecondary">{new Date(props.data.lastUpdate).toDateString()}</Typography>
+                        <Typography color = "textSecondary">{new Date(getCurrentDate('/')).toDateString()}</Typography>
                         <Typography variant = "body2">Number of total confirmed positive cases from Covid-19</Typography>
                     </CardContent>
                 </Grid>
@@ -89,7 +101,7 @@ const Cards = (props) => {
                                 seperator = ","
                             />
                         </Typography>
-                        <Typography color = "textSecondary">{new Date(props.data.lastUpdate).toDateString()}</Typography>
+                        <Typography color = "textSecondary">{new Date(getCurrentDate('/')).toDateString()}</Typography>
                         <Typography variant = "body2">Number of new confirmed positive cases from Covid-19</Typography>
                     </CardContent>
                 </Grid>
@@ -104,7 +116,7 @@ const Cards = (props) => {
                                 seperator = ","
                             />
                         </Typography>
-                        <Typography color = "textSecondary">{new Date(props.data.lastUpdate).toDateString()}</Typography>
+                        <Typography color = "textSecondary">{new Date(getCurrentDate('/')).toDateString()}</Typography>
                         <Typography variant = "body2">Number of total deaths from Covid-19</Typography>
                     </CardContent>
                 </Grid>
