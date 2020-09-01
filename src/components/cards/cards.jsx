@@ -4,6 +4,9 @@ import styles from './cards.module.css'
 import CountUp from 'react-countup';
 import cx from 'classnames';
 const Cards = (props) => {
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    }
     function getCurrentDate (separator='') {
 
         let newDate = new Date()
@@ -28,10 +31,12 @@ const Cards = (props) => {
                         <Typography color="textSecondary" gutterBottom>Total Infected</Typography>
                         <Typography variant = "h5">
                             <CountUp
+                        
                                 start = {0}
                                 end = {props.data[0].confirmed}
                                 duration = {2.5}
-                                seperator = ","
+                                separator = ","
+        
                             />
                         </Typography>
                         <Typography color = "textSecondary">{new Date(getCurrentDate('/')).toDateString()}</Typography>
@@ -46,7 +51,7 @@ const Cards = (props) => {
                                 start = {0}
                                 end = {props.data[0].hospitalized}
                                 duration = {2.5}
-                                seperator = ","
+                                separator = ","
                             />
                         </Typography>
                         <Typography color = "textSecondary">{new Date(getCurrentDate('/')).toDateString()}</Typography>
@@ -61,7 +66,7 @@ const Cards = (props) => {
                                 start = {0}
                                 end = {props.data[0].deaths}
                                 duration = {2.5}
-                                seperator = ","
+                                separator = ","
                             />
                         </Typography>
                         <Typography color = "textSecondary">{new Date(getCurrentDate('/')).toDateString()}</Typography>
@@ -83,7 +88,7 @@ const Cards = (props) => {
                                 start = {0}
                                 end = {props.data.confirmed}
                                 duration = {2.5}
-                                seperator = ","
+                                separator = ","
                             />
                         </Typography>
                         <Typography color = "textSecondary">{new Date(getCurrentDate('/')).toDateString()}</Typography>
@@ -98,7 +103,7 @@ const Cards = (props) => {
                                 start = {0}
                                 end = {props.data.hospitalized}
                                 duration = {2.5}
-                                seperator = ","
+                                separator = ","
                             />
                         </Typography>
                         <Typography color = "textSecondary">{new Date(getCurrentDate('/')).toDateString()}</Typography>
@@ -113,7 +118,7 @@ const Cards = (props) => {
                                 start = {0}
                                 end = {props.data.deaths}
                                 duration = {2.5}
-                                seperator = ","
+                                separator = ","
                             />
                         </Typography>
                         <Typography color = "textSecondary">{new Date(getCurrentDate('/')).toDateString()}</Typography>

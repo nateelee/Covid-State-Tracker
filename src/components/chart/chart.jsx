@@ -33,7 +33,21 @@ const Chart = (props) => {
                     label: 'Infected',
                     borderColor: '#3333ff',
                     fill: true,
-                },{
+                }],
+            }}
+            height = {w<=414?500:150}
+        />
+        ) 
+        : null
+        
+    );
+    const lineChartDeath = (
+        dailyData.length
+        ?(
+        <Line
+            data = {{
+                labels: dailyData.slice().reverse().map(({ date }) => date),
+                datasets:[{
                     data: dailyData.slice().reverse().map(({deaths}) => deaths),
                     label: 'Deaths',
                     borderColor: 'red',
@@ -42,7 +56,8 @@ const Chart = (props) => {
                 }],
             }}
             height = {w<=414?500:150}
-        />) 
+        />
+        ) 
         : null
         
     );
@@ -57,7 +72,20 @@ const Chart = (props) => {
                     label: 'Infected',
                     borderColor: '#3333ff',
                     fill: true
-                },{
+                }],
+            }}
+            height = {w<=414?500:150}
+        />) 
+        : null
+        
+    );
+    const lineChart2Death = (
+        props.data.length
+        ?(
+        <Line
+            data = {{
+                labels: props.data.slice().reverse().map(({ lastUpdate }) => lastUpdate),
+                datasets:[{
                     data: props.data.slice().reverse().map(({deaths}) => deaths),
                     label: 'Deaths',
                     borderColor: 'red',
@@ -73,6 +101,7 @@ const Chart = (props) => {
     return (
         <div className = {styles.container}>
            {props.state?lineChart2:lineChart}
+           {props.state?lineChart2Death:lineChartDeath}
         </div>
         
     )
